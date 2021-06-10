@@ -39,7 +39,7 @@ func New(repoUrl string) (*Repo, error) {
 		URL:         u.String(),
 		GitHost:     u.Host,
 		ProjectName: strings.TrimSuffix(basename, filepath.Ext(basename)),
-		UserName:    path.Dir(u.Path),
+		UserName:    strings.TrimPrefix(path.Dir(u.Path), "/"),
 	}
 
 	return r, nil
