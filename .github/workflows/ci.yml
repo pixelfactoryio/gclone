@@ -35,7 +35,7 @@ jobs:
       - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.29
+          version: latest
 
       - name: Run go test
         run: make test
