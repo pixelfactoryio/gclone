@@ -22,6 +22,7 @@ func initConfig() {
 	viper.AutomaticEnv()
 }
 
+// NewRootCmd create new rootCmd
 func NewRootCmd() (*cobra.Command, error) {
 	rootCmd := &cobra.Command{
 		Use:           "gclone <repo>",
@@ -52,6 +53,7 @@ func NewRootCmd() (*cobra.Command, error) {
 	return rootCmd, nil
 }
 
+// Execute adds all child commands to the root command and sets flags appropriately.
 func Execute() error {
 	rootCmd, err := NewRootCmd()
 	if err != nil {

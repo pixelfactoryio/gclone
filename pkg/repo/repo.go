@@ -9,6 +9,7 @@ import (
 	giturls "github.com/whilp/git-urls"
 )
 
+// Repo respresents a git repository
 type Repo struct {
 	GitHost     string
 	ProjectName string
@@ -16,19 +17,20 @@ type Repo struct {
 	URL         string
 }
 
-func New(repoUrl string) (*Repo, error) {
+// New creates a new git Repo using the given url
+func New(repoURL string) (*Repo, error) {
 	var u *url.URL
 	var err error
 
-	if strings.HasPrefix(repoUrl, "git") {
-		u, err = giturls.Parse(repoUrl)
+	if strings.HasPrefix(repoURL, "git") {
+		u, err = giturls.Parse(repoURL)
 		if err != nil {
 			return nil, err
 		}
 	}
 
-	if strings.HasPrefix(repoUrl, "https") {
-		u, err = url.Parse(repoUrl)
+	if strings.HasPrefix(repoURL, "https") {
+		u, err = url.Parse(repoURL)
 		if err != nil {
 			return nil, err
 		}
